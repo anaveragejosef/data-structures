@@ -18,7 +18,20 @@ queueMethods.enqueue = function(value) {
 };
 // Will contain dequeue
 queueMethods.dequeue = function() {
-
+  // remove the first item in storage
+  var deletedValue = this.storage[1];
+  delete this.storage[1];
+  // update keys by iterating through object
+  for (var key in this.storage) {
+    // set current value
+    var currentValue = this.storage[key];
+    // delete current value
+    delete this.storage[key];
+    // set as new key minus 1
+    this.storage[key - 1] = currentValue;
+  }
+  // return deleted value
+  return deletedValue;
 };
 // Will contain size
 queueMethods.size = function() {
