@@ -5,7 +5,7 @@ var Stack = function() {
   var newStack = {};
   // Add storage to stack
   newStack.storage = {};
-  // Use extend to provide methods to this instance
+  // Use extend to provide methods to the instance
   _.extend(newStack, stackMethods);
   return newStack;
 };
@@ -23,7 +23,7 @@ stackMethods.push = function (value) {
 stackMethods.pop = function () {
   // Find the last index in the object
   var lastIndex = this.size();
-  // Delete this value
+  // Delete the value
   var deletedItem = this.storage[lastIndex];
   delete this.storage[lastIndex];
   // Return the deleted item
